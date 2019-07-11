@@ -1,49 +1,49 @@
-//Доля 1/1296 Славяно-Арийской Части Часа
-Dolja_SlavAri = 0;
+// Доля 1/1296 Славяно-Арийской Части Часа
+var Dolja_SlavAri = 0;
 
-//количество (с нулями) Частей (каждая 1/144 Часа) Славяно-Арийского часа
-Chasti = "";
+// количество (с нулями) Частей (каждая 1/144 Часа) Славяно-Арийского часа
+var Chasti = "";
 
-//Час Славяно-Арийский (1/16 суток)
-Chas_SlavAri = 4;
+// Час Славяно-Арийский (1/16 суток)
+var Chas_SlavAri = 4;
 
-//Название Славяно-Арийского Часа
-Chas = "";
+// Название Славяно-Арийского Часа
+var Chas = "";
 
-//Время суток
-Jar = "";
+// Время суток
+var Jar = "";
 
-//день недели
-Dni = "";
+// день недели
+var Dni = "";
 
-//Число Славяно-Арийского Месяца (в чётный месяц - 40 дней, в нечётный - 41)
-Chislo_SlavAri = 21;
+// Число Славяно-Арийского Месяца (в чётный месяц - 40 дней, в нечётный - 41)
+var Chislo_SlavAri = 21;
 
-//Славяно-Арийский Месяц (1-9)
-Mes_SlavAri = 3;
+// Славяно-Арийский Месяц (1-9)
+var Mes_SlavAri = 3;
 
-//Славяно-Арийский Месяц (РАБГДЭВХТ)
-Mes = "Бейлетъ";
+// Славяно-Арийский Месяц (РАБГДЭВХТ)
+var Mes = "Бейлетъ";
 
-//Лето в Круге Лет - Круг - 16 Лет = 15 Простых Лет + 1 Священное Лето (все 9 Месяцев по 41 дню)
-Krug_Let = 6;
+// Лето в Круге Лет - Круг - 16 Лет = 15 Простых Лет + 1 Священное Лето (все 9 Месяцев по 41 дню)
+var Krug_Let = 6;
 
-//Название Лета ("первое" - Звёздного Храма)
-Krug = "";
+// Название Лета ("первое" - Звёздного Храма)
+var Krug = "";
 
-//Лето в Круге Жизни - Цикл 144 Лета = 9 Кругов Лет
-Krug_Zizni = 102;
+// Лето в Круге Жизни - Цикл 144 Лета = 9 Кругов Лет
+var Krug_Zizni = 102;
 
-//Лето от Сотворения Мира в Звёздном Храме (Победы над Аримами) на полночь 1 января 1970 года от Р.Х.
-S_M_Z_H = 7478;
+// Лето от Сотворения Мира в Звёздном Храме (Победы над Аримами) на полночь 1 января 1970 года от Р.Х.
+var S_M_Z_H = 7478;
 
-//Чертог, где находится Ярило-Солнце
-Chertog = "";
+// Чертог, где находится Ярило-Солнце
+var Chertog = "";
 
 function KrugoLet()
 {
-    window.setTimeout("KrugoLet()", 100); // обновление часов через 100 миллисекунд
-    today=new Date();
+    window.setTimeout("KrugoLet()", 1000); // обновление часов через 100 миллисекунд
+    today = new Date();
     mSec_Greg = today.getTime() - (today.getTimezoneOffset() * 60000); // миллисекунд от полночи 1 января 1970 года до "сейчас"
 
     //	Эти удальцы "привязали" функцию getTime() к "Гринвичу" - по сему надо "добавлять свой пояс"
@@ -54,12 +54,20 @@ function KrugoLet()
     //	определяем зимнее или летнее время и отнимаем 3600000 миллисекунд, если летнее время
     mSec_SlavAri = mSec_SlavAri - (((new Date(2010, 0, 1)).getTimezoneOffset() - new Date().getTimezoneOffset())) * 60 * 1000;
 
-    //
-    Vrem_SlavAri = (mSec_SlavAri % 86400000); // остаток миллисекунд в новых (текущих) сутка - сегодня
-    Chas_SlavAri = Math.floor(Vrem_SlavAri / 5400000.00); // Славяно-Арийский час "числом" (текущий)
-    Chast_SlavAri = Math.floor((Vrem_SlavAri % 5400000) / 37500.00); // Славяно-Арийских частей часа (текущих)
-    Dney_SlavAri = Math.floor(1.00 * (mSec_SlavAri / 86400000)); // прошло целых дней от 21 Бейлетъ 7478 от С.М.З.Х. до "сейчас"
-    Den_SlavAri =  1 + Math.floor(Dney_SlavAri % 9.00); //День недели "числом" + "1", чтобы Понедельникъ был "1", а не "0" и Вторникъ - "2" т.д.
+    // остаток миллисекунд в новых (текущих) сутка - сегодня
+    Vrem_SlavAri = (mSec_SlavAri % 86400000);
+
+    // Славяно-Арийский час "числом" (текущий)
+    Chas_SlavAri = Math.floor(Vrem_SlavAri / 5400000.00);
+
+    // Славяно-Арийских частей часа (текущих)
+    Chast_SlavAri = Math.floor((Vrem_SlavAri % 5400000) / 37500.00);
+
+    // прошло целых дней от 21 Бейлетъ 7478 от С.М.З.Х. до "сейчас"
+    Dney_SlavAri = Math.floor(1.00 * (mSec_SlavAri / 86400000));
+
+    //День недели "числом" + "1", чтобы Понедельникъ был "1", а не "0" и Вторникъ - "2" т.д.
+    Den_SlavAri =  1 + Math.floor(Dney_SlavAri % 9.00);
 
     //
     if(Den_SlavAri == 1) Dni = "<b>Понедельникъ</b><br> 1 день недели<br>день Земли-Хорса (Меркурия)";
@@ -103,7 +111,7 @@ function KrugoLet()
     // 	а сам компьютер считает интервалы времени в тиках: 1 сек = 18,2 тика (!!!)
     //
     var dol = "0000";
-    var dolya = Math.floor(((Vrem_SlavAri % 5400000) % 37500) / 28.93518518)
+    var dolya = Math.floor(((Vrem_SlavAri % 5400000) % 37500) / 28.93518518);
 
     //
     //	если убрать этот "кусок" - доли будут "молотить без остановок"
@@ -149,7 +157,7 @@ function KrugoLet()
     var ss = (s < 10? "0": "") + s;
 
     var moyindikator = document.getElementById("indikator");
-    moyindikator.innerHTML = "<table border=1 cellpadding=2 cellspacing=0 style='border-collapse: collapse' bordercolor=#111111 width=100%><tr><td><b>Календарь</b></td><td><b>Время</b></td><td><b>День недели</b></td><td><b>Число</b></td><td><b>Сороковник</b></td><td><b>Год / Л&#1123;то</b></td></tr><tr><td>Григорианский</td><td>" + hh + ":" + mm + ":" + ss + "</td><td>" + d + "</td><td>" + da + "</td><td>" + l + "</td><td>" + yy + " год от Р.Х.</td></tr><tr><td valign=top>Славяно-<br>Арийский</td><td valign=top><b>" + Chas_SlavAri.toString() + ":" + Chasti + "." + dol + "</b><br>Название часа: " + Chas + "<br><b>" + Jar + "</b></td><td valign=top>" + Dni + "</td><td valign=top>" + Chislo_SlavAri + "</td><td valign=top>" + Mes + "</td><td valign=top>" + S_M_Z_H + " Л&#1123;то от С.М.З.Х.<br>Л&#1123;то <b>"+Krug+"</b><br><b>"+Krug_Let+"-ое Л&#1123;то в Круге Лет</b><br><b>"+Krug_Zizni+"-ое Л&#1123;то в Круге Жизни</b></td></tr><tr><td colspan=6 valign=top>Чертог: <b>"+Chertog+"</b><br>Эпоха в Сутках Сварога: <b>Волк (Белый Пёс), Бог-покровитель Велес</b> (2012—3632 Р.Х.)</td></tr></table><br>";
+    moyindikator.innerHTML = "<table class='table table-striped table-hover' ><tr><td><b>Календарь</b></td><td><b>Время</b></td><td><b>День недели</b></td><td><b>Число</b></td><td><b>Сороковник</b></td><td><b>Год / Л&#1123;то</b></td></tr><tr><td>Григорианский</td><td>" + hh + ":" + mm + ":" + ss + "</td><td>" + d + "</td><td>" + da + "</td><td>" + l + "</td><td>" + yy + " год от Р.Х.</td></tr><tr><td valign=top>Славяно-<br>Арийский</td><td valign=top><b>" + Chas_SlavAri.toString() + ":" + Chasti + "." + dol + "</b><br>Название часа: " + Chas + "<br><b>" + Jar + "</b></td><td valign=top>" + Dni + "</td><td valign=top>" + Chislo_SlavAri + "</td><td valign=top>" + Mes + "</td><td valign=top>" + S_M_Z_H + " Л&#1123;то от С.М.З.Х.<br>Л&#1123;то <b>"+Krug+"</b><br><b>"+Krug_Let+"-ое Л&#1123;то в Круге Лет</b><br><b>"+Krug_Zizni+"-ое Л&#1123;то в Круге Жизни</b></td></tr><tr><td colspan=6 valign=top>Чертог: <b>"+Chertog+"</b><br>Эпоха в Сутках Сварога: <b>Волк (Белый Пёс), Бог-покровитель Велес</b> (2012—3632 Р.Х.)</td></tr></table><br>";
 
     //	теперь займемся собственно расчетом Числа, Месяца и Лета
     //	отправной параметр - Dney_SlavAri число целых дней от 21 Бейлетъ 7478 от С.М.З.Х. до "сейчас"
@@ -158,11 +166,21 @@ function KrugoLet()
     //	цикличностью не забывая, что каждое 16 Лето - Священное - то есть все Месяцы - по 41 дню.
     //	21 день в Месяце Бейлетъ (c 21-ое по 41-ое), еще 120 дней (3 Месяца по 40 дней) и 123 дня (3 Месяца по 41 дню)
     Dney_SlavAri = Dney_SlavAri - 264;	//Получим число дней между Новолетием 7479 Лета от С.М.З.Х. и по вчерашний день включительно
-    Chislo_SlavAri = 1;	//Следующее Число первое :)
-    Mes_SlavAri = 1;	//Следующий Месяц Рамхатъ, то есть "первый"
-    Krug_Let = 7;		//исходное	Krug_Let = 6  +  1
-    Krug_Zizni = 103;	//Исходное	Krug_Zizni = 102  +  1
-    S_M_Z_H = 7479;		//Исходное 	S_M_Z_H = 7478   +   1
+
+    //Следующее Число первое :)
+    Chislo_SlavAri = 1;
+
+    //Следующий Месяц Рамхатъ, то есть "первый"
+    Mes_SlavAri = 1;
+
+    //исходное	Krug_Let = 6  +  1
+    Krug_Let = 7;
+
+    //Исходное	Krug_Zizni = 102  +  1
+    Krug_Zizni = 103;
+
+    //Исходное 	S_M_Z_H = 7478   +   1
+    S_M_Z_H = 7479;
 
     //	осталось посчитать от Новолетия 7479 до "вчера"
     while(Dney_SlavAri > 0)
@@ -293,7 +311,7 @@ function KrugoLet()
 
     //
     //
-    //Чертог, где находится Ярило-Солнце: в "переходной день" смена Чертога произходит в 14:000 (Подани - начало Времени отдыха после трапезы)
+    // Чертог, где находится Ярило-Солнце: в "переходной день" смена Чертога произходит в 14:000 (Подани - начало Времени отдыха после трапезы)
     //   или в 15:00 - советского зимнего времени или в 16:00 - летнего времени
     //
     if(Mes_SlavAri == 1 && Chislo_SlavAri == 1) Chertog = "Ярило-Солнце Переходит из Чертога Девы в Чертог Вепря ";
@@ -350,7 +368,7 @@ function KrugoLet()
     if(Krug_Zizni == 33 || Krug_Zizni == 34  || Krug_Zizni == 51 || Krug_Zizni == 52 || Krug_Zizni == 69 || Krug_Zizni == 70 || Krug_Zizni == 87 || Krug_Zizni == 88 || Krug_Zizni == 105 || Krug_Zizni == 106 || Krug_Zizni == 123 || Krug_Zizni == 124 || Krug_Zizni == 141 || Krug_Zizni == 142 || Krug_Zizni == 15 || Krug_Zizni == 16) Krug = "Лунного (Фиолетового)";
     if(Krug_Zizni == 17 || Krug_Zizni == 18  || Krug_Zizni == 35 || Krug_Zizni == 36 || Krug_Zizni == 53 || Krug_Zizni == 54 || Krug_Zizni == 71 || Krug_Zizni == 72 || Krug_Zizni == 89 || Krug_Zizni == 90 || Krug_Zizni == 107 || Krug_Zizni == 108 || Krug_Zizni == 125 || Krug_Zizni == 126 || Krug_Zizni == 143 || Krug_Zizni == 144) Krug = "Божественного (Белого)";
 
-    //     	шестнадцать хором:
+    // шестнадцать хором:
     if(Krug_Zizni == 1 || Krug_Zizni == 129 || Krug_Zizni == 113 || Krug_Zizni == 97 || Krug_Zizni == 81 || Krug_Zizni == 65 || Krug_Zizni == 49 || Krug_Zizni == 33 || Krug_Zizni == 17) Krug = Krug + " Странника (Пути) ";
     if(Krug_Zizni == 2 || Krug_Zizni == 130 || Krug_Zizni == 114 || Krug_Zizni == 98 || Krug_Zizni == 82 || Krug_Zizni == 66 || Krug_Zizni == 50 || Krug_Zizni == 34 || Krug_Zizni == 18) Krug = Krug + " Жреца ";
     if(Krug_Zizni == 19 || Krug_Zizni == 3 || Krug_Zizni == 131 || Krug_Zizni == 115 || Krug_Zizni == 99 || Krug_Zizni == 83 || Krug_Zizni == 67 || Krug_Zizni == 51 || Krug_Zizni == 35) Krug = Krug + " Жрицы (Девы) ";
