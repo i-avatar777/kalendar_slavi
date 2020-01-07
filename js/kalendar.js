@@ -42,7 +42,7 @@ var Chertog = "";
 
 function KrugoLet()
 {
-    window.setTimeout("KrugoLet()", 1000); // обновление часов через 100 миллисекунд
+    //window.setTimeout("KrugoLet()", 1000); // обновление часов через 100 миллисекунд
     today = new Date();
     mSec_Greg = today.getTime() - (today.getTimezoneOffset() * 60000); // миллисекунд от полночи 1 января 1970 года до "сейчас"
 
@@ -157,7 +157,7 @@ function KrugoLet()
     var ss = (s < 10? "0": "") + s;
 
     var moyindikator = document.getElementById("indikator");
-    moyindikator.innerHTML = "<table class='table table-striped table-hover'><tr><td><b>Календарь</b></td><td><b>Время</b></td><td><b>День недели</b></td><td><b>Число</b></td><td><b>Сороковник</b></td><td><b>Год / Л&#1123;то</b></td></tr><tr><td>Григорианский</td><td>" + hh + ":" + mm + ":" + ss + "</td><td>" + d + "</td><td>" + da + "</td><td>" + l + "</td><td>" + yy + " год от Р.Х.</td></tr><tr><td valign=top>Славяно-<br>Арийский</td><td valign=top><b>" + Chas_SlavAri.toString() + ":" + Chasti + "." + dol + "</b><br>Название часа: " + Chas + "<br><b>" + Jar + "</b></td><td valign=top>" + Dni + "</td><td valign=top>" + Chislo_SlavAri + "</td><td valign=top>" + Mes + "</td><td valign=top>" + S_M_Z_H + " Л&#1123;то от С.М.З.Х.<br>Л&#1123;то <b>"+Krug+"</b><br><b>"+Krug_Let+"-ое Л&#1123;то в Круге Лет</b><br><b>"+Krug_Zizni+"-ое Л&#1123;то в Круге Жизни</b></td></tr><tr><td colspan=6 valign=top>Чертог: <b>"+Chertog+"</b><br>Эпоха в Сутках Сварога: <b>Волк (Белый Пёс), Бог-покровитель Велес</b> (2012—3632 Р.Х.)</td></tr></table><br>";
+    moyindikator.innerHTML = "<table class='table table-striped table-hover'><tr><td><b>Календарь</b></td><td><b>Время</b></td><td><b>День недели</b></td><td><b>Число</b></td><td><b>Сороковник</b></td><td><b>Год / Л&#1123;то</b></td></tr><tr><td>Григорианский</td><td>" + hh + ":" + mm + ":" + ss + "</td><td>" + d + "</td><td>" + da + "</td><td>" + l + "</td><td>" + yy + " год от Р.Х.</td></tr><tr><td valign=top>Славяно-<br>Арийский</td><td valign=top><b>" + Chas_SlavAri.toString() + ":" + Chasti + "." + dol + "</b><br>Название часа: " + Chas + "<br><b>" + Jar + "</b></td><td valign=top>" + Dni + "</td><td valign=top>" + Chislo_SlavAri + "</td><td valign=top>" + Mes + "</td><td valign=top>" + S_M_Z_H + " Л&#1123;то от С.М.З.Х.<br>Л&#1123;то <b>"+Krug+"</b><br><b>"+Krug_Let+"-ое Л&#1123;то в Круге Лет</b><br><b>" + Krug_Zizni + "-ое Л&#1123;то в Круге Жизни</b></td></tr><tr><td colspan=6 valign=top>Чертог: <b>"+Chertog+"</b><br>Эпоха в Сутках Сварога: <b>Волк (Белый Пёс), Бог-покровитель Велес</b> (2012—3632 Р.Х.)</td></tr></table><br>";
 
     //	теперь займемся собственно расчетом Числа, Месяца и Лета
     //	отправной параметр - Dney_SlavAri число целых дней от 21 Бейлетъ 7478 от С.М.З.Х. до "сейчас"
