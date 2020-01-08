@@ -40,11 +40,13 @@ var S_M_Z_H = 7478;
 // Чертог, где находится Ярило-Солнце
 var Chertog = "";
 
-function KrugoLet()
+/**
+ * @param date1 Date()
+ *
+ * @constructor
+ */
+function KrugoLet(date1)
 {
-    var date1 = new Date();
-
-    window.setTimeout("KrugoLet()", 1000); // обновление часов через 1000 миллисекунд
     today = date1;
     mSec_Greg = today.getTime() - (today.getTimezoneOffset() * 60000); // миллисекунд от полночи 1 января 1970 года до "сейчас"
 
@@ -353,18 +355,47 @@ function KrugoLet()
     if (Mes_SlavAri == 9 && Chislo_SlavAri < 18) Chertog = "Ярило-Солнце в Чертоге Раса (Леопарда), Бог-Покровитель ТАРХ ";
     if (Mes_SlavAri == 9 && Chislo_SlavAri > 18) Chertog = "Ярило-Солнце в Чертоге Девы, Богиня-Покровительница ДЖИВА";
 
+    var krug_int = 0;
+
     //
     //	можно теперь и со стихиями определиться (девять залов):
     //
-    if ($.inArray(Krug_Zizni, [1, 2 ,19, 20, 37, 38, 55, 56, 73, 74, 91, 92, 109, 110, 127, 128])) Krug = "Земного (Черного)";
-    if ($.inArray(Krug_Zizni, [129, 130 ,3,4,21,22,39,40,57,58,75,76,93,94,111,112])) Krug = "Звездного (Красного)";
-    if (Krug_Zizni == 113 || Krug_Zizni == 114  || Krug_Zizni == 131 || Krug_Zizni == 132 || Krug_Zizni == 5 || Krug_Zizni == 6 || Krug_Zizni == 23 || Krug_Zizni == 24 || Krug_Zizni == 41 || Krug_Zizni == 42 || Krug_Zizni == 59 || Krug_Zizni == 60 || Krug_Zizni == 77 || Krug_Zizni == 78 || Krug_Zizni == 95 || Krug_Zizni == 96) Krug = "Огненного (Алого)";
-    if ($.inArray(Krug_Zizni, [97,98,115,116,133,134,7,8,25,26,43,44,61,62,79,80])) Krug = "Солнечного (Златого)";
-    if (Krug_Zizni == 81 || Krug_Zizni == 82 || Krug_Zizni == 99 || Krug_Zizni == 100 || Krug_Zizni == 117 || Krug_Zizni == 118 || Krug_Zizni == 135 || Krug_Zizni == 136 || Krug_Zizni == 9 || Krug_Zizni == 10 || Krug_Zizni == 27 || Krug_Zizni == 28 || Krug_Zizni == 45 || Krug_Zizni == 46 || Krug_Zizni == 63 || Krug_Zizni == 64) Krug = "Древесного (Зеленого)";
-    if (Krug_Zizni == 65 || Krug_Zizni == 66 || Krug_Zizni == 83 || Krug_Zizni == 84 || Krug_Zizni == 101 || Krug_Zizni == 102 || Krug_Zizni == 119 || Krug_Zizni == 120 || Krug_Zizni == 137 || Krug_Zizni == 138 || Krug_Zizni == 11 || Krug_Zizni == 12 || Krug_Zizni == 29 || Krug_Zizni == 30 || Krug_Zizni == 47 || Krug_Zizni == 48) Krug = "Свага (Небесного)";
-    if (Krug_Zizni == 49 || Krug_Zizni == 50 || Krug_Zizni == 67 || Krug_Zizni == 68 || Krug_Zizni == 85 || Krug_Zizni == 86 || Krug_Zizni == 103 || Krug_Zizni == 104 || Krug_Zizni == 121 || Krug_Zizni == 122 || Krug_Zizni == 139 || Krug_Zizni == 140 || Krug_Zizni == 13 || Krug_Zizni == 14 || Krug_Zizni == 31 || Krug_Zizni == 32) Krug = "Морского (Синего)";
-    if (Krug_Zizni == 33 || Krug_Zizni == 34  || Krug_Zizni == 51 || Krug_Zizni == 52 || Krug_Zizni == 69 || Krug_Zizni == 70 || Krug_Zizni == 87 || Krug_Zizni == 88 || Krug_Zizni == 105 || Krug_Zizni == 106 || Krug_Zizni == 123 || Krug_Zizni == 124 || Krug_Zizni == 141 || Krug_Zizni == 142 || Krug_Zizni == 15 || Krug_Zizni == 16) Krug = "Лунного (Фиолетового)";
-    if (Krug_Zizni == 17 || Krug_Zizni == 18  || Krug_Zizni == 35 || Krug_Zizni == 36 || Krug_Zizni == 53 || Krug_Zizni == 54 || Krug_Zizni == 71 || Krug_Zizni == 72 || Krug_Zizni == 89 || Krug_Zizni == 90 || Krug_Zizni == 107 || Krug_Zizni == 108 || Krug_Zizni == 125 || Krug_Zizni == 126 || Krug_Zizni == 143 || Krug_Zizni == 144) Krug = "Божественного (Белого)";
+    if ($.inArray(Krug_Zizni, [1, 2, 19, 20, 37, 38, 55, 56, 73, 74, 91, 92, 109, 110, 127, 128]) >= 0) {
+        Krug = "Земного (Черного)";
+        krug_int = 1;
+    }
+    if ($.inArray(Krug_Zizni, [129, 130, 3, 4, 21, 22, 39, 40, 57, 58, 75, 76, 93, 94, 111, 112]) >= 0) {
+        Krug = "Звездного (Красного)";
+        krug_int = 2;
+    }
+    if ($.inArray(Krug_Zizni, [113, 131, 5, 23, 41, 59, 77, 95, 114, 132, 6, 24, 42, 60, 78, 96]) >= 0) {
+        Krug = "Огненного (Алого)";
+        krug_int = 3;
+    }
+    if ($.inArray(Krug_Zizni, [97, 98, 115, 116, 133, 134, 7, 8, 25, 26, 43, 44, 61, 62, 79, 80]) >= 0) {
+        Krug = "Солнечного (Златого)";
+        krug_int = 4;
+    }
+    if ($.inArray(Krug_Zizni, [81, 99, 117, 135, 9, 27, 45, 63, 82, 100, 118, 136, 10, 28, 46, 64]) >= 0) {
+        Krug = "Древесного (Зеленого)";
+        krug_int = 5;
+    }
+    if ($.inArray(Krug_Zizni, [65, 83, 101, 119, 137, 11, 29, 47, 66, 84, 102, 120, 138, 12, 30, 48]) >= 0) {
+        Krug = "Свага (Небесного)";
+        krug_int = 6;
+    }
+    if ($.inArray(Krug_Zizni, [49, 67, 85, 103, 121, 139, 13, 31, 50, 68, 86, 104, 122, 140, 14, 32]) >= 0) {
+        Krug = "Морского (Синего)";
+        krug_int = 7;
+    }
+    if ($.inArray(Krug_Zizni, [33, 51, 69, 87, 105, 123, 141, 15, 34, 52, 70, 88, 106, 124, 142, 16]) >= 0) {
+        Krug = "Лунного (Фиолетового)";
+        krug_int = 8;
+    }
+    if ($.inArray(Krug_Zizni, [17, 35, 53, 71, 89, 107, 125, 143, 18, 36, 54, 72, 90, 108, 126, 144]) >= 0) {
+        Krug = "Божественного (Белого)";
+        krug_int = 9;
+    }
 
     // шестнадцать хором:
     if (Krug_Zizni == 1 || Krug_Zizni == 129 || Krug_Zizni == 113 || Krug_Zizni == 97 || Krug_Zizni == 81 || Krug_Zizni == 65 || Krug_Zizni == 49 || Krug_Zizni == 33 || Krug_Zizni == 17) Krug = Krug + " Странника (Пути) ";
@@ -384,6 +415,49 @@ function KrugoLet()
     if (Krug_Zizni == 127 || Krug_Zizni == 111 || Krug_Zizni == 95 || Krug_Zizni == 79 || Krug_Zizni == 63 || Krug_Zizni == 47 || Krug_Zizni == 31 || Krug_Zizni == 15 || Krug_Zizni == 143) Krug = Krug + " Хором (Дома) ";
     if (Krug_Zizni == 128 || Krug_Zizni == 112 || Krug_Zizni == 96 || Krug_Zizni == 80 || Krug_Zizni == 64 || Krug_Zizni == 48 || Krug_Zizni == 32 || Krug_Zizni == 16 || Krug_Zizni == 144) Krug = Krug + " Капища (Храма) ";
 
-    var moyindikator = document.getElementById("indikator");
-    moyindikator.innerHTML = "<table class='table table-striped table-hover'><tr><td><b>Календарь</b></td><td><b>Время</b></td><td><b>День недели</b></td><td><b>Число</b></td><td><b>Сороковник</b></td><td><b>Год / Л&#1123;то</b></td></tr><tr><td>Григорианский</td><td>" + hh + ":" + mm + ":" + ss + "</td><td>" + d + "</td><td>" + da + "</td><td>" + l + "</td><td>" + yy + " год от Р.Х.</td></tr><tr><td valign=top>Славяно-<br>Арийский</td><td valign=top><b>" + Chas_SlavAri.toString() + ":" + Chasti + "." + dol + "</b><br>Название часа: " + Chas + "<br><b>" + Jar + "</b></td><td valign=top>" + Dni + "</td><td valign=top>" + Chislo_SlavAri + "</td><td valign=top>" + Mes + "</td><td valign=top>" + S_M_Z_H + " Л&#1123;то от С.М.З.Х.<br>Л&#1123;то <b>"+Krug+"</b><br><b>"+Krug_Let+"-ое Л&#1123;то в Круге Лет</b><br><b>" + Krug_Zizni + "-ое Л&#1123;то в Круге Жизни</b></td></tr><tr><td colspan=6 valign=top>Чертог: <b>"+Chertog+"</b><br>Эпоха в Сутках Сварога: <b>Волк (Белый Пёс), Бог-покровитель Велес</b> (2012—3632 Р.Х.)</td></tr></table><br>";
+    return {
+        SlavAri: {
+            // Доля
+            Dolja: dolya,
+            DoljaFormat: dol,
+
+            // Часть
+            Chasti: Chast_SlavAri,
+            ChastiFormat: Chasti,
+
+            // Час
+            Chas: Chas_SlavAri,
+            ChasFormat: Chas,
+
+            // время суток
+            JarFormat: Jar,
+
+            // День
+            Dni: Dni,
+            Chislo: Chislo_SlavAri,
+
+            // Месяц
+            Mes: Mes_SlavAri,
+            MesMesFormat: Mes,
+
+            // Лето в Круге Лет - Круг - 16 Лет = 15 Простых Лет + 1 Священное Лето (все 9 Месяцев по 41 дню)
+            Krug_Let: Krug_Let,
+            krug: krug_int,
+            KrugFormat: Krug,
+
+            // Лето в Круге Жизни - Цикл 144 Лета = 9 Кругов Лет
+            Krug_Zizni: Krug_Zizni,
+
+            // Лето от Сотворения Мира в Звёздном Храме (Победы над Аримами) на полночь 1 января 1970 года от Р.Х.
+            S_M_Z_H: S_M_Z_H,
+
+            // Чертог, где находится Ярило-Солнце
+            Chertog: Chertog,
+            ChertogFormat: Chertog
+
+        },
+        Grig: {
+
+        }
+    };
 }
