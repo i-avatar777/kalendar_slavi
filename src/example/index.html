@@ -26,10 +26,32 @@
         <h1 class="page-header">Славяно-арийский Календарь Числобога</h1>
 
         <p><button class="btn btn-success buttonCalc">Посчитать</button></p>
+
+        <div class="row">
+            <div class="col-lg-2">
+                <input class="form-control" id="day" placeholder="День..." ></input>
+            </div>
+            <div class="col-lg-2">
+                <input class="form-control" id="month" placeholder="Месяц..."></input>
+            </div>
+            <div class="col-lg-2">
+                <input class="form-control" id="year" placeholder="Год..."></input>
+            </div>
+        </div>
         <script>
             $(document).ready(function (e) {
                 $('.buttonCalc').click(function (e) {
-                    console.log(KrugoLet(new Date()));
+                    var d = $('#day').val();
+                    var m = $('#month').val();
+                    var y = $('#year').val();
+                    var d1;
+                    if (d != '' && m != '' && y != '') {
+                        d1 = new Date(y, m, d);
+                    } else {
+                        d1 = new Date();
+                    }
+
+                    console.log(KrugoLet(d1));
                 });
             });
         </script>
