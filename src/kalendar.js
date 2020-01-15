@@ -421,15 +421,6 @@ function KrugoLet(date1)
         image_str = "Жрец";
         image_int = 2;
     }
-
-
-
-
-
-
-
-
-
     if ($.inArray(Krug_Zizni, [19, 3, 131, 115, 99, 83, 67, 51, 35]) >= 0) {
         Krug = Krug + " Жрицы (Девы) ";
         image_str = "Жрица (Дева)";
@@ -500,8 +491,20 @@ function KrugoLet(date1)
         image_str = "Капище (храм)";
         image_int = 16;
     }
+//
+    //	можно теперь и со стихиями определиться (девять залов):
+    //
+    if (Krug_Zizni == 1 || Krug_Zizni == 2 || Krug_Zizni == 19 || Krug_Zizni == 20 || Krug_Zizni == 37 || Krug_Zizni == 38 || Krug_Zizni == 55 || Krug_Zizni == 56 || Krug_Zizni == 73 || Krug_Zizni == 74 || Krug_Zizni == 91 || Krug_Zizni == 92 || Krug_Zizni == 109 || Krug_Zizni == 110 || Krug_Zizni == 127 || Krug_Zizni == 128) Krug = "Земного (Черного)";
+    if (Krug_Zizni == 129 || Krug_Zizni == 130 || Krug_Zizni == 3 || Krug_Zizni == 4 || Krug_Zizni == 21 || Krug_Zizni == 22 || Krug_Zizni == 39 || Krug_Zizni == 40 || Krug_Zizni == 57 || Krug_Zizni == 58 || Krug_Zizni == 75 || Krug_Zizni == 76 || Krug_Zizni == 93 || Krug_Zizni == 94 || Krug_Zizni == 111 || Krug_Zizni == 112) Krug = "Звездного (Красного)";
+    if (Krug_Zizni == 113 || Krug_Zizni == 114  || Krug_Zizni == 131 || Krug_Zizni == 132 || Krug_Zizni == 5 || Krug_Zizni == 6 || Krug_Zizni == 23 || Krug_Zizni == 24 || Krug_Zizni == 41 || Krug_Zizni == 42 || Krug_Zizni == 59 || Krug_Zizni == 60 || Krug_Zizni == 77 || Krug_Zizni == 78 || Krug_Zizni == 95 || Krug_Zizni == 96) Krug = "Огненного (Алого)";
+    if (Krug_Zizni == 97 || Krug_Zizni == 98 || Krug_Zizni == 115 || Krug_Zizni == 116 || Krug_Zizni == 133 || Krug_Zizni == 134 || Krug_Zizni == 7 || Krug_Zizni == 8 || Krug_Zizni == 25 || Krug_Zizni == 26 || Krug_Zizni == 43 || Krug_Zizni == 44 || Krug_Zizni == 61 || Krug_Zizni == 62 || Krug_Zizni == 79 || Krug_Zizni == 80) Krug = "Солнечного (Златого)";
+    if (Krug_Zizni == 81 || Krug_Zizni == 82 || Krug_Zizni == 99 || Krug_Zizni == 100 || Krug_Zizni == 117 || Krug_Zizni == 118 || Krug_Zizni == 135 || Krug_Zizni == 136 || Krug_Zizni == 9 || Krug_Zizni == 10 || Krug_Zizni == 27 || Krug_Zizni == 28 || Krug_Zizni == 45 || Krug_Zizni == 46 || Krug_Zizni == 63 || Krug_Zizni == 64) Krug = "Древесного (Зеленого)";
+    if (Krug_Zizni == 65 || Krug_Zizni == 66 || Krug_Zizni == 83 || Krug_Zizni == 84 || Krug_Zizni == 101 || Krug_Zizni == 102 || Krug_Zizni == 119 || Krug_Zizni == 120 || Krug_Zizni == 137 || Krug_Zizni == 138 || Krug_Zizni == 11 || Krug_Zizni == 12 || Krug_Zizni == 29 || Krug_Zizni == 30 || Krug_Zizni == 47 || Krug_Zizni == 48) Krug = "Свага (Небесного)";
+    if (Krug_Zizni == 49 || Krug_Zizni == 50 || Krug_Zizni == 67 || Krug_Zizni == 68 || Krug_Zizni == 85 || Krug_Zizni == 86 || Krug_Zizni == 103 || Krug_Zizni == 104 || Krug_Zizni == 121 || Krug_Zizni == 122 || Krug_Zizni == 139 || Krug_Zizni == 140 || Krug_Zizni == 13 || Krug_Zizni == 14 || Krug_Zizni == 31 || Krug_Zizni == 32) Krug = "Морского (Синего)";
+    if (Krug_Zizni == 33 || Krug_Zizni == 34  || Krug_Zizni == 51 || Krug_Zizni == 52 || Krug_Zizni == 69 || Krug_Zizni == 70 || Krug_Zizni == 87 || Krug_Zizni == 88 || Krug_Zizni == 105 || Krug_Zizni == 106 || Krug_Zizni == 123 || Krug_Zizni == 124 || Krug_Zizni == 141 || Krug_Zizni == 142 || Krug_Zizni == 15 || Krug_Zizni == 16) Krug = "Лунного (Фиолетового)";
+    if (Krug_Zizni == 17 || Krug_Zizni == 18  || Krug_Zizni == 35 || Krug_Zizni == 36 || Krug_Zizni == 53 || Krug_Zizni == 54 || Krug_Zizni == 71 || Krug_Zizni == 72 || Krug_Zizni == 89 || Krug_Zizni == 90 || Krug_Zizni == 107 || Krug_Zizni == 108 || Krug_Zizni == 125 || Krug_Zizni == 126 || Krug_Zizni == 143 || Krug_Zizni == 144) Krug = "Божественного (Белого)";
 
-
+    // шестнадцать хором:
     if (Krug_Zizni == 1 || Krug_Zizni == 129 || Krug_Zizni == 113 || Krug_Zizni == 97 || Krug_Zizni == 81 || Krug_Zizni == 65 || Krug_Zizni == 49 || Krug_Zizni == 33 || Krug_Zizni == 17) Krug = Krug + " Странника (Пути) ";
     if (Krug_Zizni == 2 || Krug_Zizni == 130 || Krug_Zizni == 114 || Krug_Zizni == 98 || Krug_Zizni == 82 || Krug_Zizni == 66 || Krug_Zizni == 50 || Krug_Zizni == 34 || Krug_Zizni == 18) Krug = Krug + " Жреца ";
     if (Krug_Zizni == 19 || Krug_Zizni == 3 || Krug_Zizni == 131 || Krug_Zizni == 115 || Krug_Zizni == 99 || Krug_Zizni == 83 || Krug_Zizni == 67 || Krug_Zizni == 51 || Krug_Zizni == 35) Krug = Krug + " Жрицы (Девы) ";

@@ -38,20 +38,36 @@
                 <input class="form-control" id="year" placeholder="Год..."></input>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <p id="result"></p>
+            </div>
+        </div>
         <script>
             $(document).ready(function (e) {
                 $('.buttonCalc').click(function (e) {
                     var d = $('#day').val();
                     var m = $('#month').val();
+                    var ism = false;
+                    if (m != '') {
+                        ism = true;
+                        m = m - 1;
+                    }
                     var y = $('#year').val();
                     var d1;
-                    if (d != '' && m != '' && y != '') {
+                    console.log([d,m,y]);
+                    if (d != '' && ism && y != '') {
                         d1 = new Date(y, m, d);
+                        console.log(1);
                     } else {
                         d1 = new Date();
+                        console.log(2);
                     }
+                    var result = KrugoLet(d1);
 
-                    console.log(KrugoLet(d1));
+                    $('#result').html(result.SlavAri.KrugFormat + '<br>' + result.SlavAri.Element + ' ' + result.SlavAri.ElementFormat + '<br>' + result.SlavAri.Image + ' ' + result.SlavAri.ImageFormat);
+
+                    console.log(result);
                 });
             });
         </script>
