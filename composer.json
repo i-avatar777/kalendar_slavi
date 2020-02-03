@@ -17,11 +17,6 @@
     "yiisoft/yii2-jui": "*",
     "yiisoft/yii2-faker": "*"
   },
-  "autoload": {
-    "psr-4": {
-      "iAvatar777\\widgets\\": "src"
-    }
-  },
   "repositories": [
     {
       "type": "composer",
