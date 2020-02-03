@@ -23,6 +23,11 @@
       "url": "https://asset-packagist.org"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "iAvatar777\\widgets\\KalendarSlavi1\\": "src"
+    }
+  },
   "config": {
     "process-timeout": 1800
   }
