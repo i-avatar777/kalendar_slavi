@@ -1,7 +1,6 @@
 /**
  * @param date1 Date()
  *
- * @constructor
  */
 function KrugoLet(date1)
 {
