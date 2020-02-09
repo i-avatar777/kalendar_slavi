@@ -20,8 +20,11 @@ function KrugoLet(date1)
     // Время суток
     var Jar = "";
 
-    // день недели
+    // день недели форматированный
     var Dni = "";
+
+    // день недели int
+    var Dni_int;
 
     // Число Славяно-Арийского Месяца (в чётный месяц - 40 дней, в нечётный - 41)
     var Chislo_SlavAri = 21;
@@ -509,8 +512,11 @@ function KrugoLet(date1)
         // время суток
         JarFormat: Jar,
 
-        // День
-        Dni: Dni,
+        // День недели
+        Dni: Den_SlavAri,
+        DniFormat: Dni,
+
+        // День месяца
         Chislo: Chislo_SlavAri,
 
         // Месяц
