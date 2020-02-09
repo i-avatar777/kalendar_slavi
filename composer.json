@@ -1,7 +1,7 @@
 {
   "name": "i-avatar777/kalendar_slavi",
   "version":"1.0.3",
-  "description": "Виджет для Yii2 для рисования календаря Коляда Дар на лето",
+  "description": "Это библиотека JavaScript для расчета даты и времени по русскому календарю",
   "keywords": ["kalendar_slavi"],
   "type": "project",
   "license": "BSD-3-Clause",
