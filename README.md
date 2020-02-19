@@ -15,11 +15,12 @@
 
 ```js
 var result = KrugoLet(d1);
-$('#result').html(result.KrugFormat + '<br>' + result.Element + ' ' + result.ElementFormat + '<br>' + result.Image + ' ' + result.ImageFormat);
+$('#result').html(result.S_M_Z_H  + ' Лето<br>' + result.KrugFormat + '<br>' + result.Element + ' ' + result.ElementFormat + '<br>' + result.Image + ' ' + result.ImageFormat);
 ```
 
 Выдаст
 ```
+7528 Лето
 Солнечного (Златого) Дракона
 4 Солнечного (Златого)
 8 Дракон
