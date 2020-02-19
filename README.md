@@ -18,6 +18,13 @@ var result = KrugoLet(d1);
 $('#result').html(result.KrugFormat + '<br>' + result.Element + ' ' + result.ElementFormat + '<br>' + result.Image + ' ' + result.ImageFormat);
 ```
 
+Выдаст
+```
+Солнечного (Златого) Дракона
+4 Солнечного (Златого)
+8 Дракон
+```
+
 ## Возвращаемые параметры
 
 Расшифровка параметров возвращаемого объекта:
