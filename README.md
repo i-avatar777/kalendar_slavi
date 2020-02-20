@@ -11,6 +11,42 @@
 
 Работает только от даты 1 января 1970 г.
 
+## Инсталяция
+
+Для инсталяции библиотеки используйте composer:
+
+```json
+{
+    "require": {
+        "i-avatar777/kalendar_slavi": "*"
+    }
+}
+```
+
+Или через команду
+
+```
+composer require i-avatar777/kalendar_slavi
+```
+
+Далее если у вас установлен Yii2 то в коде на странице нужно прописать:
+
+```php
+\iAvatar777\widgets\KalendarSlavi1\Asset::register($this);
+```
+
+Если у вас не установлен Yii2 то в коде HTML страницы нужно скопировать файл `src/kalendar.js` в открытую папку сервера чтобы это файл был доступен на сайте по http и далее прописать в теге HEAD:
+
+```html
+<html>
+    <head>
+        <link href="https://code.jquery.com/jquery-3.4.1.min.js" rel="stylesheet">
+        <link href="/js/kalendar.js" rel="stylesheet">
+    </head>
+    <body></body>
+</html>
+```
+
 ## Пример использования
 
 ```js
