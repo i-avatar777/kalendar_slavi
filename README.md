@@ -35,7 +35,7 @@ composer require i-avatar777/kalendar_slavi
 \iAvatar777\widgets\KalendarSlavi1\Asset::register($this);
 ```
 
-Если у вас не установлен Yii2 то в коде HTML страницы нужно скопировать файл `src/kalendar.js` в открытую папку сервера чтобы это файл был доступен на сайте по http и далее прописать в теге HEAD:
+Если у вас не установлен Yii2 то нужно скопировать файл `src/kalendar.js` в открытую папку сервера чтобы это файл был доступен на сайте по http и далее в коде HTML страницы прописать в теге HEAD:
 
 ```html
 <html>
