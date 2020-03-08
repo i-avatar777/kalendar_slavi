@@ -5,7 +5,7 @@
 function KrugoLet(date1)
 {
     // Доля 1/1296 Славяно-Арийской Части Часа
-    var Dolja_SlavAri = 0;
+    var dolya = 0;
 
     // количество (с нулями) Частей (каждая 1/144 Часа) Славяно-Арийского часа
     var Chasti = "";
@@ -59,7 +59,7 @@ function KrugoLet(date1)
     var mSec_SlavAri = mSec_Greg + 21600000; // миллисекунд от 16:000 21 Бейлетъ 7478 лета от С.М.З.Х. до "сейчас"
 
     //	определяем зимнее или летнее время и отнимаем 3600000 миллисекунд, если летнее время
-    var mSec_SlavAri = mSec_SlavAri - (((new Date(2010, 0, 1)).getTimezoneOffset() - new Date().getTimezoneOffset())) * 60 * 1000;
+    mSec_SlavAri = mSec_SlavAri - (((new Date(2010, 0, 1)).getTimezoneOffset() - new Date().getTimezoneOffset())) * 60 * 1000;
 
     // остаток миллисекунд в новых (текущих) сутка - сегодня
     var Vrem_SlavAri = (mSec_SlavAri % 86400000);
@@ -118,7 +118,7 @@ function KrugoLet(date1)
     // 	а сам компьютер считает интервалы времени в тиках: 1 сек = 18,2 тика (!!!)
     //
     var dol = "0000";
-    var dolya = Math.floor(((Vrem_SlavAri % 5400000) % 37500) / 28.93518518);
+    dolya = Math.floor(((Vrem_SlavAri % 5400000) % 37500) / 28.93518518);
 
     //
     //	если убрать этот "кусок" - доли будут "молотить без остановок"
