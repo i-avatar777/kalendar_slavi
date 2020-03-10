@@ -1,6 +1,6 @@
 {
   "name": "i-avatar777/kalendar_slavi",
-  "version":"1.0.4",
+  "version":"1.0.5",
   "description": "Это библиотека JavaScript для расчета даты и времени по русскому календарю",
   "keywords": ["kalendar_slavi"],
   "type": "project",

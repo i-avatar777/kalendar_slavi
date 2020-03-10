@@ -52,20 +52,24 @@ function KrugoLet(date1)
 
     var today = date1;
     var mSec_Greg = today.getTime() - (today.getTimezoneOffset() * 60000); // миллисекунд от полночи 1 января 1970 года до "сейчас"
-
+    console.log(['mSec_Greg', mSec_Greg]);
     //	Эти удальцы "привязали" функцию getTime() к "Гринвичу" - по сему надо "добавлять свой пояс"
     //	a в функцию getTimezoneOffset(), которая должна возвращать различие в минутах между
     //	локальным и универсальным временем, "воткнули минус" - посему и мы "на их минус" ... "свой"
     var mSec_SlavAri = mSec_Greg + 21600000; // миллисекунд от 16:000 21 Бейлетъ 7478 лета от С.М.З.Х. до "сейчас"
+    console.log(['mSec_SlavAri', mSec_SlavAri]);
 
     //	определяем зимнее или летнее время и отнимаем 3600000 миллисекунд, если летнее время
     mSec_SlavAri = mSec_SlavAri - (((new Date(2010, 0, 1)).getTimezoneOffset() - new Date().getTimezoneOffset())) * 60 * 1000;
+    console.log(['mSec_SlavAri', mSec_SlavAri]);
 
     // остаток миллисекунд в новых (текущих) сутка - сегодня
     var Vrem_SlavAri = (mSec_SlavAri % 86400000);
+    console.log(['Vrem_SlavAri', Vrem_SlavAri]);
 
     // Славяно-Арийский час "числом" (текущий)
     Chas_SlavAri = Math.floor(Vrem_SlavAri / 5400000.00);
+    console.log(['Chas_SlavAri', Chas_SlavAri]);
 
     // Славяно-Арийских частей часа (текущих)
     var Chast_SlavAri = Math.floor((Vrem_SlavAri % 5400000) / 37500.00);
